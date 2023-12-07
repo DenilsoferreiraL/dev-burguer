@@ -90,3 +90,49 @@ transition: all 0.3s ease 0s;
 }
 `
 
+export const Div = styled.div`
+display: flex;
+height: ;
+flex-direction: column;
+color:#ffffff;
+font-size: 18px;
+font-style: normal;
+font-weight: 300;
+line-height: normal;
+
+`
+
+export const Paragraph = styled.p`
+color: #fff;
+font-size: 18px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+padding-top: 25px;
+`
+
+export const List = styled.li`
+display: flex;
+margin-top: 20px;
+padding: 10px;
+justify-content: center;
+ align-items: center;
+max-width: 410px;
+width: 100%;
+height: auto;
+flex-shrink: 0;
+border-radius: 14px;
+background: rgba(255, 255, 255, 0.25);
+justify-content: space-around;
+
+
+& button{
+display: flex;
+width: 28px;
+height: 24px;
+background: transparent;
+border: none;
+align-items: center;
+}
+`
+
