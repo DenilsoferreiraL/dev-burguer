@@ -16,7 +16,7 @@ import Logo from "./assets/logo-burguer.svg"
 import Trash from "./assets/Trash.svg"
 
 function App() {
-    const orderList = [{ id: Math.random(), order: "1 Coca-Cola, 1 X-Salada  ", clienteName: "Denilso ", price: 43, status: "em preparação" }]
+    const orderList = [{ id: Math.random(), order: "1 Batata Grande, 1 X-Bacon, 2 Coca-Colas Light ", clienteName: "Denilso ", price: 43, status: "em preparação" }]
     return (
         <Container>
             <Image alt="logo-imagem" src={Logo} />
@@ -37,7 +37,7 @@ function App() {
                                 <p>{user.order} </p>
                                 <Paragraph> {user.clienteName} </Paragraph>
                             </Div>
-                            <button><img src={Trash} /></button>
+                            <button><img alt="Trash-img" src={Trash} /></button>
                         </List>
                     ))}
 
