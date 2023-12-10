@@ -132,6 +132,7 @@ height: 24px;
 background: transparent;
 border: none;
 align-items: center;
+cursor: pointer;
 }
 `
 

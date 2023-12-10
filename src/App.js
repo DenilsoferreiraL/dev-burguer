@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import {
     Container,
     ContainerItens,
@@ -16,7 +16,13 @@ import Logo from "./assets/logo-burguer.svg"
 import Trash from "./assets/Trash.svg"
 
 function App() {
-    const orderList = [{ id: Math.random(), order: "1 Batata Grande, 1 X-Bacon, 2 Coca-Colas Light ", clienteName: "Denilso ", price: 43, status: "em preparação" }]
+    const  [orderList, setOrderList ] = useState([])
+    // { id: Math.random(), order: "1 Batata Grande, 1 X-Bacon, 2 Coca-Colas Light ", clienteName: "Denilso ", price: 43, status: "em preparação" }
+    function addneworder() {
+        setOrderList([{ id: Math.random(), order: "1 Batata Grande, 1 X-Bacon, 2 Coca-Colas Light ", clienteName: "Denilso ", price: 43, status: "em preparação" }])
+
+
+    }
     return (
         <Container>
             <Image alt="logo-imagem" src={Logo} />
@@ -28,7 +34,7 @@ function App() {
                 <Label>Nome do Cliente</Label>
                 <Input placeholder="Steve Jobs"></Input>
 
-                <Button>Novo Pedido</Button>
+                <Button onClick={addneworder}>Novo Pedido</Button>
 
                 <ul>
                     {orderList.map((user) => (
