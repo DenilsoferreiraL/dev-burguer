@@ -15,6 +15,7 @@ export const ContainerItens = styled.div`
 display: flex;
 flex-direction: column;
 justify-content: center;
+align-items: center;
 
 `
 
@@ -60,7 +61,6 @@ line-height: normal;
 
 export const Button = styled.button`
 display: flex;
-margin:0 0 0 5px;
 justify-content: center;
 align-items: center;
 max-width: 350px;
