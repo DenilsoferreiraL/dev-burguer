@@ -16,25 +16,36 @@ import Logo from "./assets/logo-burguer.svg"
 import Trash from "./assets/Trash.svg"
 
 function App() {
-    const  [orderList, setOrderList ] = useState([])
+    const [orderList, setOrderList] = useState([])
+    const [clienteName, setClienteName] = useState([])
+    const [order, setOrder] = useState([])
     // { id: Math.random(), order: "1 Batata Grande, 1 X-Bacon, 2 Coca-Colas Light ", clienteName: "Denilso ", price: 43, status: "em preparação" }
-    function addneworder() {
-        setOrderList([{ id: Math.random(), order: "1 Batata Grande, 1 X-Bacon, 2 Coca-Colas Light ", clienteName: "Denilso ", price: 43, status: "em preparação" }])
+    function addNeworder() {
 
-
+        setOrderList([{ id: Math.random(), order, clienteName, price: 43, status: "em preparação" }])
     }
+
+    function changeInputOrder(event) {
+        setOrder(event.target.value)
+    }
+
+    function changeInputCliente(event) {
+        setClienteName(event.target.value)
+    }
+
+
     return (
         <Container>
             <Image alt="logo-imagem" src={Logo} />
             <ContainerItens>
                 <H1>Faça seu pedido!</H1>
                 <Label>Pedido</Label>
-                <Input placeholder="1 Coca-Cola, 1-X Salada"></Input>
+                <Input onChange={changeInputOrder} placeholder="1 Coca-Cola, 1-X Salada"></Input>
 
                 <Label>Nome do Cliente</Label>
-                <Input placeholder="Steve Jobs"></Input>
+                <Input onChange={changeInputCliente} placeholder="Steve Jobs"></Input>
 
-                <Button onClick={addneworder}>Novo Pedido</Button>
+                <Button onClick={addNeworder}>Novo Pedido</Button>
 
                 <ul>
                     {orderList.map((user) => (
