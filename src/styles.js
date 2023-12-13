@@ -92,6 +92,7 @@ transition: all 0.3s ease 0s;
 
 export const Div = styled.div`
 display: flex;
+margin-right: 20px;
 flex-direction: column;
 color:#ffffff;
 font-size: 18px;

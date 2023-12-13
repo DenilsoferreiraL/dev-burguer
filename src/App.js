@@ -19,10 +19,12 @@ function App() {
     const [orderList, setOrderList] = useState([])
     const [clienteName, setClienteName] = useState([])
     const [order, setOrder] = useState([])
-    // { id: Math.random(), order: "1 Batata Grande, 1 X-Bacon, 2 Coca-Colas Light ", clienteName: "Denilso ", price: 43, status: "em preparação" }
+
     function addNeworder() {
 
-        setOrderList([{ id: Math.random(), order, clienteName, price: 43, status: "em preparação" }])
+        setOrderList([...orderList, { id: Math.random(), order, clienteName, price: 43, status: "em preparação" }])
+
+
     }
 
     function changeInputOrder(event) {
