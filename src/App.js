@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useRef } from "react"
 import {
     Container,
     ContainerItens,
@@ -17,24 +17,21 @@ import Trash from "./assets/Trash.svg"
 
 function App() {
     const [orderList, setOrderList] = useState([])
-    const [clienteName, setClienteName] = useState([])
-    const [order, setOrder] = useState([])
+    const inputOrder = useRef()
+    const inputClienteName = useRef()
+
 
     function addNeworder() {
 
-        setOrderList([...orderList, { id: Math.random(), order, clienteName, price: 43, status: "em preparação" }])
-
+        setOrderList([...orderList, { id: Math.random(), order: inputOrder.current.value, clienteName: inputClienteName.current.value, price: 43, status: "em preparação" }])
 
     }
 
-    function changeInputOrder(event) {
-        setOrder(event.target.value)
-    }
+    function deleteOrder(userId) {
+        const newOrder = orderList.filter(user => user.id !== userId)
 
-    function changeInputCliente(event) {
-        setClienteName(event.target.value)
+        setOrderList(newOrder)
     }
-
 
     return (
         <Container>
@@ -42,10 +39,10 @@ function App() {
             <ContainerItens>
                 <H1>Faça seu pedido!</H1>
                 <Label>Pedido</Label>
-                <Input onChange={changeInputOrder} placeholder="1 Coca-Cola, 1-X Salada"></Input>
+                <Input ref={inputOrder} placeholder="1 Coca-Cola, 1-X Salada"></Input>
 
-                <Label>Nome do Cliente</Label>
-                <Input onChange={changeInputCliente} placeholder="Steve Jobs"></Input>
+                <Label>Nome</Label>
+                <Input ref={inputClienteName} placeholder="Steve Jobs"></Input>
 
                 <Button onClick={addNeworder}>Novo Pedido</Button>
 
@@ -56,7 +53,9 @@ function App() {
                                 <p>{user.order} </p>
                                 <Paragraph> {user.clienteName} </Paragraph>
                             </Div>
-                            <button><img alt="Trash-img" src={Trash} /></button>
+                            <button onClick={() => deleteOrder(user.id)}>
+                                <img alt="Trash-img" src={Trash} />
+                            </button>
                         </List>
                     ))}
 
