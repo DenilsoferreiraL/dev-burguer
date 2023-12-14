@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react"
+import React, { useState, useRef, useEffect } from "react"
 
 
 import Logo from "./assets/logo-burguer.svg"
@@ -26,19 +26,24 @@ function App() {
 
 
     async function addNewOrder() {
-        const response = await axios.post("http://localhost:3001/order", {
+        const { data: newOrder } = await axios.post("http://localhost:3001/order/", {
             order: inputOrder.current.value, clienteName: inputClienteName.current.value
         })
+        setOrderList([...orderList, newOrder])
 
-        console.log(response.data)
     }
+    useEffect(() => {
+        async function fetchOrder() {
+            const { data: newListOrder } = await axios.get("http://localhost:3001/order")
 
-        // setOrderList([...orderList, { id: Math.random(), 
-        // order: inputOrder.current.value, 
-        // clienteName: inputClienteName.current.value,
-        //  price: 43, status: "em preparação" }])
+            setOrderList(newListOrder)
+        }
 
-    function deleteOrder(userId) {
+        fetchOrder()
+    }, [])
+
+    async function deleteOrder(userId) {
+        await axios.delete(`http://localhost:3001/order/${userId}`)
         const newOrder = orderList.filter(user => user.id !== userId)
 
         setOrderList(newOrder)
