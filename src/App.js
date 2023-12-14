@@ -1,4 +1,10 @@
 import React, { useState, useRef } from "react"
+
+
+import Logo from "./assets/logo-burguer.svg"
+import Trash from "./assets/Trash.svg"
+import axios from "axios"
+
 import {
     Container,
     ContainerItens,
@@ -12,8 +18,6 @@ import {
     Paragraph
 } from "./styles"
 
-import Logo from "./assets/logo-burguer.svg"
-import Trash from "./assets/Trash.svg"
 
 function App() {
     const [orderList, setOrderList] = useState([])
@@ -21,11 +25,18 @@ function App() {
     const inputClienteName = useRef()
 
 
-    function addNeworder() {
+    async function addNewOrder() {
+        const response = await axios.post("http://localhost:3001/order", {
+            order: inputOrder.current.value, clienteName: inputClienteName.current.value
+        })
 
-        setOrderList([...orderList, { id: Math.random(), order: inputOrder.current.value, clienteName: inputClienteName.current.value, price: 43, status: "em preparação" }])
-
+        console.log(response.data)
     }
+
+        // setOrderList([...orderList, { id: Math.random(), 
+        // order: inputOrder.current.value, 
+        // clienteName: inputClienteName.current.value,
+        //  price: 43, status: "em preparação" }])
 
     function deleteOrder(userId) {
         const newOrder = orderList.filter(user => user.id !== userId)
@@ -44,7 +55,7 @@ function App() {
                 <Label>Nome</Label>
                 <Input ref={inputClienteName} placeholder="Steve Jobs"></Input>
 
-                <Button onClick={addNeworder}>Novo Pedido</Button>
+                <Button onClick={addNewOrder}>Novo Pedido</Button>
 
                 <ul>
                     {orderList.map((user) => (
