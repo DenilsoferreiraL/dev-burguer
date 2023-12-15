@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react"
+import React, { useState, useRef } from "react"
 
 
 import Logo from "../../assets/logo-burguer.svg"
@@ -29,15 +29,7 @@ function App() {
         setOrderList([...orderList, newOrder])
 
     }
-    useEffect(() => {
-        async function fetchOrder() {
-            const { data: newListOrder } = await axios.get("http://localhost:3001/order")
-
-            setOrderList(newListOrder)
-        }
-
-        fetchOrder()
-    }, [])
+  
 
     return (
         <Container>

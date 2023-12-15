@@ -20,7 +20,7 @@ align-items: center;
 `
 
 export const Image = styled.img`
-max-width:342px;
+max-width:246px;
 width: 100%;
 height: auto;
 cursor: pointer;
@@ -36,31 +36,9 @@ color: #eee;
 padding: 40px;
 `
 
-export const Label = styled.label`
-color:#eee;
-font-style: normal;
-font-weight: 700;
-line-height: 22px;
-letter-spacing: -0.408px;
-margin-left: 20px;
-`
-
-export const Input = styled.input`
-display: flex;
-margin-bottom: 65px;
-padding: 19px 139px 18px 15px;
-align-items: center;
-border-radius: 14px;
-background: rgba(255, 255, 255, 0.25);
-color: #eee;
-font-size: 18px;
-font-style: normal;
-font-weight: 300;
-line-height: normal;
-`
-
 export const Button = styled.button`
 display: flex;
+margin-top: 50px;
 justify-content: center;
 align-items: center;
 max-width: 350px;
