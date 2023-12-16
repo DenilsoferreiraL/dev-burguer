@@ -1,6 +1,5 @@
 import React, { useState, useRef } from "react"
-
-
+import { useHistory } from 'react-router-dom'
 import Logo from "../../assets/logo-burguer.svg"
 import axios from "axios"
 
@@ -12,12 +11,13 @@ import {
     Label,
     Input,
     Button,
-   
+
 } from "./styles"
 
 
 function App() {
     const [orderList, setOrderList] = useState([])
+    const history = useHistory()
     const inputOrder = useRef()
     const inputClienteName = useRef()
 
@@ -27,9 +27,11 @@ function App() {
             order: inputOrder.current.value, clienteName: inputClienteName.current.value
         })
         setOrderList([...orderList, newOrder])
-
+        
+        history.push('/order')
     }
-  
+
+
 
     return (
         <Container>
@@ -44,7 +46,6 @@ function App() {
 
                 <Button onClick={addNewOrder}>Novo Pedido</Button>
 
-              
             </ContainerItens>
         </Container>
 

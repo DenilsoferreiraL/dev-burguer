@@ -1,17 +1,17 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+
 import Home from './Containers/Home'
 import Order from './Containers/Order'
 
-const App = () => {
+function Routes() {
     return (
         <Router>
-            <Routes>
-                <Route path="/" element={Home} />
-                <Route path="/order" element={Order} />
-            </Routes>
+            <Route exact path="/" component={Home} />
+            <Route exactya path="/order" component={Order} />
         </Router>
     );
 };
 
-export default App;
+export default Routes;
+
