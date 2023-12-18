@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import LogoOder from "../../assets/logo-order.svg"
 import Trash from "../../assets/Trash.svg"
 import axios from "axios"
@@ -18,7 +18,7 @@ import {
 
 function Order() {
     const [orderList, setOrderList] = useState([])
-    const history = useHistory()
+    const navigate = useNavigate()
 
 
     useEffect(() => {
@@ -38,10 +38,10 @@ function Order() {
         setOrderList(newOrder)
     }
 
-    function goBackPage(){
-        history.push('/')
+    function goBackPage() {
+        navigate('/')
     }
-    
+
     return (
         <Container>
             <Image alt="logoOder" src={LogoOder} />

@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react"
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import Logo from "../../assets/logo-burguer.svg"
 import axios from "axios"
 
@@ -17,7 +17,7 @@ import {
 
 function App() {
     const [orderList, setOrderList] = useState([])
-    const history = useHistory()
+    const navigate = useNavigate()
     const inputOrder = useRef()
     const inputClienteName = useRef()
 
@@ -27,8 +27,8 @@ function App() {
             order: inputOrder.current.value, clienteName: inputClienteName.current.value
         })
         setOrderList([...orderList, newOrder])
-        
-        history.push('/order')
+
+        navigate('/order')
     }
 
 
