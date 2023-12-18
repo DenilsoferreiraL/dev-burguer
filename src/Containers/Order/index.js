@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom'
 import axios from "axios"
 
 import H1 from '../../components/Title'
+import Button from '../../components/Button'
+
 import Trash from "../../assets/Trash.svg"
 import LogoOder from "../../assets/logo-order.svg"
 
@@ -11,7 +13,6 @@ import {
     Container,
     ContainerItens,
     Image,
-    Button,
     List,
     Div,
     Paragraph

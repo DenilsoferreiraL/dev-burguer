@@ -1,9 +1,9 @@
 import React from 'react'
 import { H1 } from './styles'
 
-function title() {
+function title(props) {
 
-    return <H1></H1>
+    return <H1>{props.children}</H1>
 
 }
 
