@@ -2,12 +2,12 @@ import React, { useState, useRef } from "react"
 import { useNavigate } from 'react-router-dom'
 import Logo from "../../assets/logo-burguer.svg"
 import axios from "axios"
-
+import H1 from '../../components/Title'
+ 
 import {
     Container,
     ContainerItens,
     Image,
-    H1,
     Label,
     Input,
     Button,

@@ -4,16 +4,16 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './Containers/Home'
 import Order from './Containers/Order'
 
-function myRoutes() {
+function MyRoutes() {
     return (
         <Router>
             <Routes>
-                <Route path="/" element={Home} />
-                <Route path="/order" element={Order} />
+                <Route path="/" element={<Home/>} />
+                <Route path="/order" element={<Order/>} />
             </Routes>
         </Router>
     );
 };
 
-export default myRoutes;
+export default MyRoutes;
 
