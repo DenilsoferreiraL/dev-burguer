@@ -49,6 +49,14 @@ font-weight: 300;
 line-height: normal;
 `
 
+export const ErrorParagraph = styled.p `
+display: flex;
+justify-content: center;
+font-size: 18px;
+color: #ffffff;
+
+`
+
 export const Button = styled.button`
 display: flex;
 justify-content: center;
